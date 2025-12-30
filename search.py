@@ -118,8 +118,7 @@ def graph_search(problem, fringe):
         visitados += 1
         
         if problem.goal_test(node.state):
-            # Imprimimos metricas antes de devolver la solucion (Parte 3)
-            # Usamos print para NO romper la interfaz de retorno original.
+            # Imprimimos metricas antes de devolver la solucion. Usamos print para NO romper la interfaz de retorno original.
             print(f"   [METRICAS] Generados: {generados} | Visitados: {visitados}")
             return node
             
