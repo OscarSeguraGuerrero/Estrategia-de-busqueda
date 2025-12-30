@@ -1,18 +1,15 @@
 import search
 
-# 1. Definimos los casos de prueba de la tabla del enunciado
 casos = [
-    ('A', 'B'),                 # Ejemplo inicial (Arad -> Bucharest)
+    ('A', 'B'),                 # Caso 1 (Arad -> Bucharest)
     ('O', 'E'),                 # Caso 2 (Oradea -> Eforie)
     ('G', 'Z'),                 # Caso 3 (Giurgiu -> Zerind)
     ('N', 'D'),                 # Caso 4 (Neamt -> Dobreta)
     ('M', 'F')                  # Caso 5 (Mehadia -> Fagaras)
 ]
 
-# NOTA: En el grafo 'romania' de search.py, las ciudades usan iniciales:
-# Arad -> A, Bucharest -> B, etc.
 
-# 2. Definimos los algoritmos a ejecutar
+# Definimos los algoritmos a ejecutar
 algoritmos = [
     ("Amplitud (BFS)", search.breadth_first_graph_search),
     ("Profundidad (DFS)", search.depth_first_graph_search),
@@ -35,17 +32,12 @@ for origen, destino in casos:
         print(f"Algoritmo: {nombre_alg}")
         
         try:
-            # La funcion imprimira GENERADOS y VISITADOS automaticamente por consola
-            # (Recuerda que esto ocurre dentro de search.py gracias a los cambios anteriores)
             nodo_final = func_alg(problem)
             
             if nodo_final:
                 coste = nodo_final.path_cost
                 
-                # --- CAMBIO AQUÍ PARA EL FORMATO DE NODOS ---
-                # Obtenemos la lista de objetos Node completa.
                 # search.py devuelve el camino desde el Meta hasta el Inicio (inverso),
-                # que es justo el formato que muestra tu PDF: [<Node B>, <Node F>...]
                 ruta_lista = nodo_final.path()
                 
                 # Convertimos la lista a string directamente
